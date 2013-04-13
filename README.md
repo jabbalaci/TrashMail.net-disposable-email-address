@@ -24,3 +24,8 @@ Usage
 -----
 
     ./trashmail.py
+
+Sample output:
+
+    # copied to the clipboard
+    prcb107f@trashmail.net
