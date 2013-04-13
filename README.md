@@ -8,7 +8,8 @@ TrashMail.net disposable email address
 Creates a disposable email address on TrashMail.net (<https://ssl.trashmail.net/>).
 
 First, you must register yourself on trashmail.net (it's free). With these
-credentials you can access the address manager of TrashMail.net.
+credentials you can access the address manager of TrashMail.net. Emails will be
+redirected to the address that you set upon registration.
 
 Then, you must provide your credentials to this script. Either you
 hard-code it in the source (USERNAME and PASSWORD variables), or
