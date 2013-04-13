@@ -1,11 +1,11 @@
-TrashMail.net-disposable-email-address
+TrashMail.net disposable email address
 ======================================
 
 * Author:  Laszlo Szathmary, 2013 (<jabba.laci@gmail.com>)
-* Website: <...>
+* Website: <http://ubuntuincident.wordpress.com/2013/04/13/trashmail/>
 * GitHub:  <https://github.com/jabbalaci/TrashMail.net-disposable-email-address>
 
-Creates a disposable email address on TrashMail.net (https://ssl.trashmail.net/).
+Creates a disposable email address on TrashMail.net (<https://ssl.trashmail.net/>).
 
 First, you must register yourself on trashmail.net (it's free). With these
 credentials you can access the address manager of TrashMail.net.
