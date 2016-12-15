@@ -3,10 +3,10 @@
 """
 Create a temporary (disposable) email address on trashmail.net .
 
-I took the file https://ssl.trashmail.net/files/trashmail_sdk_1_1.tar.gz
+I took the file https://trashmail.com/files/trashmail_sdk_1_1.tar.gz
 and converted it to Python.
 
-On https://ssl.trashmail.net/ you will have to register yourself (it's free).
+On https://trashmail.com/ you will have to register yourself (it's free).
 Upon registration you provide your real email address where emails from
 the disposable addresses will be redirected to. You need this registration
 to be able to create disposable email addresses on trashmail.net .
@@ -38,7 +38,7 @@ def get_session_id_and_real_email():
         "fe-login-user": USERNAME,
         "fe-login-pass": PASSWORD
     }
-    r = requests.post('https://ssl.trashmail.net/', data=payload)
+    r = requests.post('https://trashmail.com/', data=payload)
     if DEBUG:
         print r.headers
     # Holy shit: you need the SECOND session ID, not the first one!
@@ -65,7 +65,7 @@ def create_temp_email(session_id, real_email):
             "ctime": 0,
             "ctime_text": "",
             "disposable_name": utils.get_urandom_password(8),
-            "disposable_domain": "trashmail.net",
+            "disposable_domain": "trashmail.com",
             "destination": real_email,
             "forwards": 10,     # that's the maximum number of forwards for the free service
             "expire": 7,        # max. value: 31 (one month)
@@ -78,7 +78,7 @@ def create_temp_email(session_id, real_email):
     cookie = {'trashmail_session': session_id}
     headers = {'content-type': 'text/plain'}
 
-    r = requests.post('https://ssl.trashmail.net/?api=1&cmd=update_dea',
+    r = requests.post('https://trashmail.com/?api=1&cmd=update_dea',
         cookies=cookie, data=json.dumps(payload), headers=headers
     )
     if DEBUG:
@@ -93,12 +93,16 @@ def main():
     session_id, real_email = get_session_id_and_real_email()
     email = create_temp_email(session_id, real_email)
 
-    text_to_clipboards(email)
-    print '# copied to the clipboard'
+    # Uncomment to copy email to clipboard
+    # Requires "xsel"
+
+    # text_to_clipboards(email)
+    # print '# copied to the clipboard'
+
     print email
 
 #############################################################################
-    
+
 if __name__ == "__main__":
     if USERNAME and PASSWORD:
         main()
